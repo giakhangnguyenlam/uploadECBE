@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose');
 var expressValidator = require('express-validator');
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 3000;
 const db = mongoose.connection;
 const { google } = require('googleapis')
 const jwt = require('jsonwebtoken')
@@ -13,6 +13,7 @@ const axios = require('axios')
 const querystring = require('query-string');
 // const passport = require('passport');
 // const GoogleStrategy = require('passport-google-oauth20').Strategy;
+
 //===============>>> Google analyst<<===================
   
 
@@ -20,6 +21,7 @@ const querystring = require('query-string');
 
 //===============>>> Google analyst<<===================
 
+const home = require("./routes/users");
 //===============>>> Customer <<<==================
 const customerController = require("./routes/customer");
 //===============>>> Customer <<<==================
@@ -139,7 +141,8 @@ app.use(session({
 // 	res.redirect('/success')
 // })
 //=========================>> Google API <<<=============================
-app.use("/", customerController)
+app.use("/", home);
+app.use("/customers", customerController);
 app.use('/users', usersRouter);
 app.use('/orders', orderController);
 app.use('/products', productController);
