@@ -6,6 +6,7 @@ exports.createOrder = function(req, res, next){
     // req.body.pick_date = moment(req.body.pick_date, "DD-MM-YYYY");
     // req.body.deliver_date = moment(req.body.deliver_date, "DD-MM-YYYY");
     const order = new Order(req.body);
+    order.pick_date = moment().format('DD-MM-YYYY');
     subtractSlotShipping(req, res, next);
     // order.pick_date = moment(req.body.pick_date, "DD-MM-YYYY");
     // order.deliver_date = moment(req.body.deliver_date, "DD-MM-YYYY");

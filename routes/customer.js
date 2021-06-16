@@ -17,11 +17,11 @@ function requiresLogin(req, res, next) {
 }
 
 router.post('/login', login);
-router.get('/customers', requiresLogin, listCustomer);
-router.get('/customer/:id', requiresLogin, detailCustomer);
-router.post('/customer', CustomerValidation, createCustomer);
-router.put('/customer/:id', requiresLogin, editCustomer);
-router.delete('/customer/:id', requiresLogin, deleteCustomer);
+router.get('/', requiresLogin, listCustomer);
+router.get('/:id', requiresLogin, detailCustomer);
+router.post('/', CustomerValidation, createCustomer);
+router.put('/:id', requiresLogin, editCustomer);
+router.delete('/:id', requiresLogin, deleteCustomer);
 router.get('/logout', requiresLogin, logout);
 
 module.exports = router;
