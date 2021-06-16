@@ -4,9 +4,9 @@ const {createCustomer, login, logout, listCustomer, detailCustomer, editCustomer
 const {CustomerValidation} =  require('../Validator/CustomerValidation');
 
 
-router.get('/', function(req, res, next) {
-    res.render("index");  
-  });
+// router.get('/', function(req, res, next) {
+//     res.render("index");  
+//   });
 
 function requiresLogin(req, res, next) {
     if (req.session && req.session.customer) {
