@@ -82,3 +82,10 @@ exports.deleteOrder = function(req, res, next){
         res.json({'mess':'Delete thành công'});
     })
 }
+
+exports.findByCompanyId = function(req, res, next){
+    Order.find({company_id: req.params.id}, col, (err, orders) => {
+        if(err) return res.json(err)
+        return res.json(orders)
+    })
+}

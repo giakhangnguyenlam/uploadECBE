@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const {createOrder, listOrders, findOrderById, editOrder, deleteOrder, updateStatus} = require("../services/OrderService");
+const {createOrder, listOrders, findOrderById, editOrder, deleteOrder, updateStatus, findByCompanyId} = require("../services/OrderService");
 
 
 function requiresLogin(req, res, next) {
@@ -17,4 +17,5 @@ router.get("/:id", findOrderById);
 router.delete("/:id", deleteOrder);
 router.put("/:id", editOrder);
 router.put("/status/:id", updateStatus);
+router.get("/company/:id", findByCompanyId);
 module.exports = router;
